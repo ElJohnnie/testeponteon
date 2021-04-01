@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Empresario;
 
 class HomeController extends Controller
 {
@@ -11,9 +12,11 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    private $empresario;
+
+    public function __construct(Empresario $empresario)
     {
-        $this->middleware('auth');
+        $this->empresario = $empresario;
     }
 
     /**
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $empresarios = $this->empresario->orderBy('id', 'ASC')->paginate(10);
+        
+        return view('home', compact('empresarios'));
     }
 }
