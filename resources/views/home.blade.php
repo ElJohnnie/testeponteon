@@ -17,6 +17,7 @@
     </div>
   </div>
   <h4>Cadastrar empresário</h4>
+  @include('flash::message')
   <form class="mb-4" action="{{ route('criar') }}" method="post">
     @csrf
     @method('POST')
@@ -49,25 +50,40 @@
   </form>
   <h4>Empresários cadastrados</h4>
   <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>#</th>
           <th>Nome</th>
           <th>Celular</th>
           <th>Cidade / UF</th>
+          <th>Cadastrado em</th>
           <th>Pai empresarial</th>
+          <th>Rede</th>
           <th>Ações</th>
         </tr>
       </thead>
       <tbody>
+        @foreach($empresarios as $e)
         <tr>
-          <td>1,001</td>
-          <td>random</td>
-          <td>data</td>
-          <td>placeholder</td>
-          <td>text</td>
+          <td>{{ $e->id }}</td>
+          <td>{{ $e->nome }}</td>
+          <td>{{ $e->celular }}</td>
+          <td>{{ $e->cidade."/".$e->estado }}</td>
+          <td>{{ date( 'd/m/Y H:i:s' , strtotime($e->created_at)) }}</td>
+          <td>...</td>
+          <td>
+            <button type="button" class="btn btn-info"><i class="fas fa-network-wired"></i></button>
+          </td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+              <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+              <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </td>
         </tr>
+        @endforeach
+        {{ $empresarios->links() }}
       </tbody>
     </table>
   </div>
