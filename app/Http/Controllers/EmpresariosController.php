@@ -17,7 +17,8 @@ class EmpresariosController extends Controller
     public function create(Request $request)
     {
         $empresario = $request->all();
-        dd($request->all());
         $this->empresario->create($empresario);
+        flash('Empresario cadastrado com sucesso')->success();
+        return redirect()->route('home'); 
     }
 }
