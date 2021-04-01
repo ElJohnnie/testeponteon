@@ -1,0 +1,23 @@
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+tr,
+td,
+label {
+    color: white;
+}
+
+body {
+    background-color: #90d4ff !important;
+}
+
+.navbar {
+    background-color: #89d2ff !important;
+}
+
+#sidebarMenu {
+    background-color: #89d2ff !important;
+}
