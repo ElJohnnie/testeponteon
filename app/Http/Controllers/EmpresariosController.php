@@ -35,6 +35,18 @@ class EmpresariosController extends Controller
             return redirect()->route('home'); 
         }
     }
+
+    public function destroy($id){
+        $pai = Pai::find($id);
+        if($pai){
+            Pai::destroy($id);
+        }
+        $empresario = $this->empresario->find($id);
+        $empresario->delete();
+        flash('Empresario deletado com sucesso')->success();
+        return redirect()->route('home'); 
+    }
+
     public function sePaiExiste($idPai){
         
         $pai = Pai::find($idPai);

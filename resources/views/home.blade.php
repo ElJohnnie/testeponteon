@@ -104,7 +104,7 @@
                   <div class="modal-footer">
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <a href="#" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
-                      <a href="#" type="button" class="btn btn-danger ml-1">Excluir</a>
+                      <a type="button" href="{{route('remove', ['id' => $e->id])}}" class="btn ml-1 btn-danger">Excluir</a>
                     </div>
                   </div>
                 </div>

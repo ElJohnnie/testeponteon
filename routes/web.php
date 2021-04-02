@@ -13,14 +13,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/home', 'HomeController@index')->name('home');
     Route::group(['middleware' => ['empresario.existe']], function (){
         Route::post('/create', 'EmpresariosController@create')->name('criar');
+        Route::get('remove/{id}', 'EmpresariosController@destroy')->name('remove');
     });
     Route::get('/rede/{id}', 'EmpresariosController@rede')->name('rede');
 });
 
-Auth::routes();
+
 
 
