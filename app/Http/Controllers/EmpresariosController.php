@@ -25,15 +25,23 @@ class EmpresariosController extends Controller
 
     public function create(Request $request)
     {
+        //
         if($request->get('pai') != null){
             
             $id = $request->get('pai');
-            $nome = $request->get('nome');
-
+            $filho_id = $request->get('id');
+            $pai = Empresario::findOrFail($id)->get();
+            foreach($pai as $p){
+                $nome = $p->nome;
+            }
             Pai::create([
                     'id' => $id,
-                    'nome' => $nome
-                ]);
+                    'nome' => $nome,
+            ]);
+
+            $pai = Pai::findOrFail($id);
+            $data = $request->all();
+            $empresario = $pai->filhos()->create($data);
         };
         $empresario = $request->all();
         $this->empresario->create($empresario);

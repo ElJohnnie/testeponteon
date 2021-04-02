@@ -8,7 +8,7 @@ class Pai extends Model
 {
     protected $fillable = ['id', 'nome'];
 
-    public function filho(){
+    public function filhos(){
         return $this->hasMany(Empresario::class);
     }
 }

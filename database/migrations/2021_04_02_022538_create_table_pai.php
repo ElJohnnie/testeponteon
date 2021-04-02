@@ -15,9 +15,7 @@ class CreateTablePai extends Migration
     {
         Schema::create('pais', function (Blueprint $table) {
             $table->integer('id');
-            $table->unsignedBigInteger('empresario_id');
             $table->string('nome');
-            $table->foreign('empresario_id')->references('id')->on('empresario');
             $table->timestamps();
         });
     }
