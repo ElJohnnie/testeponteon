@@ -24,25 +24,34 @@
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="nome">Nome Completo</label>
-        <input type="text" class="form-control" id="nome" name="nome"  required>
+        <input type="text" class="form-control" id="nome" name="nome" value="{{old('nome')}}"  required>
       </div>
       <div class="col-md-6 mb-3">
         <label for="celular">Celular</label>
-        <input type="text" class="form-control" name="celular" id="celular" required>
+        <input type="text" class="form-control" name="celular" id="celular" value="{{old('celular')}}" required>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="estados">Estado</label>
-        <select class="custom-select" id="estados" name="estado" required>
-          <option></option>
+        <select class="custom-select" id="estados"  name="estado" required>
+          <option value="{{old('estado')}}"></option>
         </select>
       </div>
       <div class="col-md-3 mb-3">
         <label for="cidades">Cidade</label>
         <select class="custom-select" id="cidades" name="cidade" required>
           <option selected disabled value="">Choose...</option>
-          <option>...</option>
+          <option value="{{old('cidade')}}">...</option>
+        </select>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="cidades">Pai empresarial</label>
+        <select class="custom-select" id="pai" name="pai_id">
+          <option selected disabled value="">...</option>
+          @foreach($empresarios as $e)
+          <option value="{{ $e->id }}">{{ $e->nome }}</option>
+          @endforeach
         </select>
       </div>
     </div>
@@ -71,7 +80,7 @@
           <td>{{ $e->celular }}</td>
           <td>{{ $e->cidade."/".$e->estado }}</td>
           <td>{{ date( 'd/m/Y H:i:s' , strtotime($e->created_at)) }}</td>
-          <td>...</td>
+          <td>{{ $e->empresario_id }}</td>
           <td>
             <button type="button" class="btn btn-info"><i class="fas fa-network-wired"></i></button>
           </td>
@@ -83,9 +92,9 @@
           </td>
         </tr>
         @endforeach
-        {{ $empresarios->links() }}
       </tbody>
     </table>
+    {{ $empresarios->links() }}
   </div>
   @section('scripts')
   @endsection
