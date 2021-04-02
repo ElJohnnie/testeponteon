@@ -19,7 +19,9 @@ class CreateTableEmpresarios extends Migration
             $table->string('celular');
             $table->string('estado');
             $table->string('cidade');
+            $table->unsignedBigInteger('pai_id')->nullable();
             $table->timestamps();
+            $table->foreign('pai_id')->references('id')->on('empresarios');
         });
     }
 
