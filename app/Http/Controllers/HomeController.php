@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $empresarios = $this->empresario->orderBy('id', 'ASC')->paginate(10);
+        $empresarios = $this->empresario->orderBy('id', 'DESC')->paginate(10);
         
         return view('home', compact('empresarios'));
     }

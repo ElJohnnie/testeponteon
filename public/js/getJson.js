@@ -1,24 +1,17 @@
 	$(document).ready(function() {
-
 	    $.getJSON('js/estadoecidade.json', function(data) {
-
 	        var items = [];
 	        var options = '<option value="">Escolha um estado</option>';
-
 	        $.each(data, function(key, val) {
 	            options += '<option value="' + val.sigla + '">' + val.nome + '</option>';
 	        });
 	        $("#estados").html(options);
-
 	        $("#estados").change(function() {
-
 	            var options_cidades = '';
 	            var str = "";
-
 	            $("#estados option:selected").each(function() {
 	                str += $(this).text();
 	            });
-
 	            $.each(data, function(key, val) {
 	                if (val.nome == str) {
 	                    $.each(val.cidades, function(key_city, val_city) {
@@ -26,11 +19,7 @@
 	                    });
 	                }
 	            });
-
 	            $("#cidades").html(options_cidades);
-
 	        }).change();
-
 	    });
-
 	});

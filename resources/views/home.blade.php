@@ -35,20 +35,20 @@
       <div class="col-md-3 mb-3">
         <label for="estados">Estado</label>
         <select class="custom-select" id="estados"  name="estado" required>
-          <option value="{{old('estado')}}"></option>
+          <option value="">...</option>
         </select>
       </div>
       <div class="col-md-3 mb-3">
         <label for="cidades">Cidade</label>
         <select class="custom-select" id="cidades" name="cidade" required>
-          <option selected disabled value="">Choose...</option>
-          <option value="{{old('cidade')}}">...</option>
+  
+          <option value="">...</option>
         </select>
       </div>
       <div class="col-md-6 mb-3">
         <label for="cidades">Pai empresarial</label>
-        <select class="custom-select" id="pai" name="pai_id">
-          <option selected disabled value="">...</option>
+        <select class="custom-select" id="pai" name="pai">
+          <option selected value="">...</option>
           @foreach($empresarios as $e)
           <option value="{{ $e->id }}">{{ $e->nome }}</option>
           @endforeach
@@ -82,7 +82,9 @@
           <td>{{ date( 'd/m/Y H:i:s' , strtotime($e->created_at)) }}</td>
           <td>{{ $e->empresario_id }}</td>
           <td>
-            <button type="button" class="btn btn-info"><i class="fas fa-network-wired"></i></button>
+            <a href="{{route('rede', ['id' => $e->id ])}}" type="button" class="btn btn-info">
+              <i class="fas fa-network-wired"></i>
+            </a>
           </td>
           <td>
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">

@@ -8,4 +8,8 @@ class Empresario extends Model
 {
     protected $fillable = ['nome', 'celular', 'estado', 'cidade', 'pai_id'];
 
+    public function pai(){
+        $this->belongsTo(Pai::class);
+    }
+
 }

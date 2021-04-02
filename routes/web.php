@@ -18,6 +18,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::group(['middleware' => ['empresario.existe']], function (){
         Route::post('/create', 'EmpresariosController@create')->name('criar');
     });
+    Route::get('/rede/{id}', 'EmpresariosController@rede')->name('rede');
 });
 
 Auth::routes();
