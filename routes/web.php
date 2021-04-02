@@ -15,7 +15,9 @@ Route::get('/', function () {
 });
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::post('/create', 'EmpresariosController@create')->name('criar');
+    Route::group(['middleware' => ['empresario.existe']], function (){
+        Route::post('/create', 'EmpresariosController@create')->name('criar');
+    });
 });
 
 Auth::routes();
