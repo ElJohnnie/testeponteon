@@ -80,16 +80,35 @@
           <td>{{ $e->celular }}</td>
           <td>{{ $e->cidade."/".$e->estado }}</td>
           <td>{{ date( 'd/m/Y H:i:s' , strtotime($e->created_at)) }}</td>
-          <td>{{ $e->empresario_id }}</td>
+          <td>{{ $e->pai['nome'] }}</td>
           <td>
             <a href="{{route('rede', ['id' => $e->id ])}}" type="button" class="btn btn-info">
               <i class="fas fa-network-wired"></i>
             </a>
           </td>
           <td>
-            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-              <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-              <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluir<?php echo $e->id ?>" ><i class="fas fa-trash-alt"></i></a>
+            <!-- Modal -->
+            <div class="modal fade" id="excluir<?php echo $e->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Atenção</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Deseja excluir o registro de {{ $e->nome }}?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <a href="#" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
+                      <a href="#" type="button" class="btn btn-danger ml-1">Excluir</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </td>
         </tr>
@@ -101,3 +120,5 @@
   @section('scripts')
   @endsection
 @endsection
+
+
