@@ -15,40 +15,43 @@ class EmpresariosController extends Controller
         $this->empresario = $empresario;
     }
 
-    public function rede($id)
-    {
-        $rede = $this->empresario->findOrfail($id);
-
-        dd($rede->pai);
-
-    }
-
     public function create(Request $request)
     {
-        //
+        //se escolher pai
         if($request->get('pai') != null){
             
-            $id = $request->get('pai');
-            $filho_id = $request->get('id');
-            $pai = Empresario::findOrFail($id)->get();
+            $idPai = $request->get('pai');
+            $pai = $this->sePaiExiste($idPai);
+            $data = $request->all();
+            $empresario = $pai->filhos()->create($data);
+            flash('Empresario com pai cadastrado com sucesso')->success();
+            return redirect()->route('home'); 
+        }else{
+            //se não escolher pai
+            $empresario = $request->all();
+            $this->empresario->create($empresario);
+        
+            flash('Empresario cadastrado com sucesso')->success();
+            return redirect()->route('home'); 
+        }
+    }
+    public function sePaiExiste($idPai){
+        
+        $pai = Pai::find($idPai);
+        if(!$pai){
+            $pai = Empresario::findOrFail($idPai)->get();
             foreach($pai as $p){
                 $nome = $p->nome;
             }
             Pai::create([
-                    'id' => $id,
+                    'id' => $idPai,
                     'nome' => $nome,
             ]);
-
-            $pai = Pai::findOrFail($id);
-            $data = $request->all();
-            $empresario = $pai->filhos()->create($data);
-        };
-        $empresario = $request->all();
-        $this->empresario->create($empresario);
-        
-        flash('Empresario cadastrado com sucesso')->success();
-        return redirect()->route('home'); 
+            $pai = Pai::findOrFail($idPai);
+            return $pai;
+        }else{
+            $pai = Pai::findOrFail($idPai);
+            return $pai;
+        }   
     }
-
-   
 }
