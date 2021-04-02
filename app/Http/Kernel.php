@@ -63,7 +63,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         // outros middlewares
-        'auth.admin' => \App\Http\Middleware\AdminCheck::class
+        'empresario.existe' => \App\Http\Middleware\EmpresarioExiste::class
        
     ];
 
