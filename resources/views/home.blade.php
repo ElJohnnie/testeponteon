@@ -10,11 +10,6 @@
   </div>
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h2>Menu inicial</h2>
-    <div class="btn-toolbar mb-2 mb-md-0">
-      <div class="btn-group me-2">
-        <button type="button" class="btn btn-sm btn-outline-light">Share</button>
-      </div>
-    </div>
   </div>
   <h4>Cadastrar empresário</h4>
   @include('flash::message')
@@ -55,7 +50,7 @@
         </select>
       </div>
     </div>
-    <button class="btn btn-primary" type="submit">Cadastrar</button>
+    <button class="btn btn-outline-success" type="submit">Cadastrar</button>
   </form>
   <h4>Empresários cadastrados</h4>
   <div class="table-responsive">
@@ -82,7 +77,7 @@
           <td>{{ date( 'd/m/Y H:i:s' , strtotime($e->created_at)) }}</td>
           <td>{{ $e->pai['nome'] }}</td>
           <td>
-            <a href="{{route('rede', ['id' => $e->id ])}}" type="button" class="btn btn-info">
+            <a href="{{route('listar', ['id' => $e->id])}}" type="button" class="btn btn-info">
               <i class="fas fa-network-wired"></i>
             </a>
           </td>
