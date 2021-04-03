@@ -29,3 +29,7 @@ body {
 .modal-body p {
     color: black !important;
 }
+
+.breadcrumb {
+    background: none !important;
+}
