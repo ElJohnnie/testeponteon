@@ -1,5 +1,7 @@
 
 <h1 align="center">Ponteon - Teste para Vaga de Desenvolvedor Web</h1>
+<p align="center"><strong>Sobre o projeto:</strong></p>
+Desenvolver um crud básico com dados hierárquicos. 
 <p align="center"><strong>Instalação:</strong></p>
 Requisitos: Composer e Laravel instalados em seu ambiente.
 
