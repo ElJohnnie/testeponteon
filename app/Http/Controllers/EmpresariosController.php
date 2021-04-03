@@ -36,7 +36,17 @@ class EmpresariosController extends Controller
         }
     }
 
+    public function show($id){
+
+        $empresario = $this->empresario->find($id);
+        dd($empresario->pai());
+     
+        $resposta = $this->gerarRede($empresario);
+        return view('list', compact('empresario'));
+    }
+
     public function destroy($id){
+
         $pai = Pai::find($id);
         if($pai){
             Pai::destroy($id);
@@ -51,7 +61,7 @@ class EmpresariosController extends Controller
         
         $pai = Pai::find($idPai);
         if(!$pai){
-            $pai = Empresario::findOrFail($idPai)->get();
+            $pai = $this->empresario->findOrFail($idPai)->get();
             foreach($pai as $p){
                 $nome = $p->nome;
             }
@@ -65,5 +75,9 @@ class EmpresariosController extends Controller
             $pai = Pai::findOrFail($idPai);
             return $pai;
         }   
+    }
+
+    public function gerarRede($empresario){
+          
     }
 }
