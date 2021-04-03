@@ -12,4 +12,8 @@ class Empresario extends Model
         return $this->belongsTo(Pai::class);
     }
 
+    public function filhos(){
+        return $this->hasMany(Empresario::class, 'pai_id');
+    }
+
 }

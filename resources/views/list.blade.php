@@ -11,11 +11,36 @@
 </nav>
 <div class="row">
     <div class="col-12">
-       
+        <h4>{{ $empresario->nome }}</h4>
         <ul>
-            <li>{{ $empresario->nome }}</li>
-        </ul>
-        
+            @php 
+            // A lógica de filhos dos filhos está presente nos models do app
+            
+            @endphp
+            @if(isset($pai->filhos))
+                @foreach($pai->filhos as $filhos)
+                    <li>{{ $filhos->nome }}</li>
+                        @if(count($filhos->filhos)>0)
+                        <ul>
+                            <li>
+                                @foreach($filhos->filhos as $netos)
+                                {{ $netos->nome }}
+                                    @if(count($netos->filhos)>0)
+                                        <ul>
+                                            @foreach($netos->filhos as $bisnetos)
+                                                <li>
+                                                    {{ $bisnetos->nome }}
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                @endforeach
+                            </li>
+                        </ul>   
+                        @endif
+                @endforeach
+            @endif
+        </ul> 
     </div>
 </div>
 @endsection

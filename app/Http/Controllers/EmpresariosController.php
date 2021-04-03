@@ -19,7 +19,6 @@ class EmpresariosController extends Controller
     {
         //se escolher pai
         if($request->get('pai') != null){
-            
             $idPai = $request->get('pai');
             $pai = $this->sePaiExiste($idPai);
             $data = $request->all();
@@ -36,13 +35,11 @@ class EmpresariosController extends Controller
         }
     }
 
-    public function show($id){
-
-        $empresario = $this->empresario->find($id);
-        dd($empresario->pai());
+    public function rede($id){
      
-        $resposta = $this->gerarRede($empresario);
-        return view('list', compact('empresario'));
+        $pai = Pai::find($id);
+        $empresario = $this->empresario->find($id);
+        return view('list', compact('pai', 'empresario'));
     }
 
     public function destroy($id){
@@ -77,7 +74,4 @@ class EmpresariosController extends Controller
         }   
     }
 
-    public function gerarRede($empresario){
-          
-    }
 }

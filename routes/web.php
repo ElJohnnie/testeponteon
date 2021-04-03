@@ -19,7 +19,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::group(['middleware' => ['empresario.existe']], function (){
         Route::post('create', 'EmpresariosController@create')->name('criar');
     });
-    Route::get('listar/{id}', 'EmpresariosController@show')->name('listar');
+    Route::get('rede/{id}', 'EmpresariosController@rede')->name('listar');
     Route::get('remove/{id}', 'EmpresariosController@destroy')->name('remove');
 });
 
