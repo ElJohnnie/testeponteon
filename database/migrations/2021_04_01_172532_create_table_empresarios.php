@@ -16,7 +16,7 @@ class CreateTableEmpresarios extends Migration
         Schema::create('empresarios', function (Blueprint $table) {
             
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('pai_id')->nullable();
+            $table->unsignedBigInteger('pai_id')->unsigned();
             $table->string('nome');
             $table->string('celular');
             $table->string('estado');
