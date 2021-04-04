@@ -12,13 +12,29 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                background: linear-gradient(90deg, white, #aadeff);
+                background-size: 300% 300%;
+                animation: gradient 15s ease infinite;
             }
+
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+            
 
             .full-height {
                 height: 100vh;
