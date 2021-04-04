@@ -15,7 +15,7 @@ class AlterTableEmpresarios extends Migration
     {
         Schema::table('empresarios', function (Blueprint $table) {
             $table->unsignedBigInteger('pai_id')->nullable();
-            $table->foreign('pai_id')->references('id')->on('pais');
+            $table->foreign('pai_id')->references('id')->on('pais')->onDelete('cascade');
         });
     }
 

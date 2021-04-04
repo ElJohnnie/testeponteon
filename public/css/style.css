@@ -33,3 +33,11 @@ body {
 .breadcrumb {
     background: none !important;
 }
+
+.card {
+    margin-top: 25px;
+}
+
+.card-body label {
+    color: #424242f1 !important;
+}

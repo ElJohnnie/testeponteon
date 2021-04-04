@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <img src="{{ asset('img/pon.png') }}" alt="">
                 </div>
 
                 <div class="links">
