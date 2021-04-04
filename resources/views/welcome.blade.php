@@ -102,7 +102,7 @@
 
                 <div class="m-b-md">
                     <p>
-                        <strong>Primeiramente, muito obrigado pela oportunidade, toda experiência sempre será bem-vinda.</strong>
+                        <strong>Primeiramente, muito obrigado pela oportunidade. Toda experiência sempre será bem-vinda.</strong>
                     </p>
                     <div class="row">
                         <p>
