@@ -19,11 +19,11 @@
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="nome">Nome Completo</label>
-        <input type="text" class="form-control" id="nome" name="nome" value="{{old('nome')}}"  required>
+        <input type="text" class="form-control" id="nome" name="nome" value="{{old('nome')}}" required>
       </div>
       <div class="col-md-6 mb-3">
         <label for="celular">Celular</label>
-        <input type="text" class="form-control" name="celular" id="celular" value="{{old('celular')}}" required>
+        <input id="celular" class="form-control" onkeypress="return onlynumber();" name="celular" value="{{old('celular')}}" required>
       </div>
     </div>
     <div class="form-row">
@@ -36,8 +36,7 @@
       <div class="col-md-3 mb-3">
         <label for="cidades">Cidade</label>
         <select class="custom-select" id="cidades" name="cidade" required>
-  
-          <option value="">...</option>
+           <option value="">...</option>
         </select>
       </div>
       <div class="col-md-6 mb-3">
@@ -45,7 +44,7 @@
         <select class="custom-select" id="pai" name="pai">
           <option selected value="">...</option>
           @foreach($empresarios as $e)
-          <option value="{{ $e->id }}">{{ $e->nome }}</option>
+            <option value="{{ $e->id }}">{{ $e->nome }}</option>
           @endforeach
         </select>
       </div>

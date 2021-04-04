@@ -9,7 +9,7 @@ $(document).ready(function() {
         c.value = VMasker.toPattern(v, masks[m]);
     }
 
-    var telMask = ['(99) 99999-9999'];
+    var telMask = ['(99) 9999-99999', '(99) 99999-9999'];
     var tel = document.querySelector('#celular');
 
     VMasker(tel).maskPattern(telMask[0]);
