@@ -14,7 +14,7 @@ class CreateTablePai extends Migration
     public function up()
     {
         Schema::create('pais', function (Blueprint $table) {
-            $table->integer('id')->unsigned();
+            $table->bigIncrements('id');
             $table->string('nome');
             $table->timestamps();
         });
