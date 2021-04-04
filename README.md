@@ -2,7 +2,7 @@
 <h1 align="center">Ponteon - Teste para Vaga de Desenvolvedor Web</h1>
 <p align="center"><strong>Sobre o projeto:</strong></p>
 Desenvolver um crud básico com dados hierárquicos. 
-<p align="center"><strong>Instalação:</strong></p>
+<p align="center"><strong>Instalação em seu ambiente local:</strong></p>
 Requisitos: Composer e Laravel instalados em seu ambiente.
 
 Rode em seu terminal:
@@ -27,4 +27,8 @@ Com o database conectado, rode as migrations com a sequência de comandos em seu
 ```
 $ php artisan key:generate
 $ php artisan migrate #antes de rodar este comando verifique sua configuracao com banco em .env
+```
+Após as migrations, rode o comando db:seed para dar um insert na credencial de login
+```
+$ php artisan db:seed
 ```
