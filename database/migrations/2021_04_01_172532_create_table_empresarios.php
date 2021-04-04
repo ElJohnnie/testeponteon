@@ -16,14 +16,12 @@ class CreateTableEmpresarios extends Migration
         Schema::create('empresarios', function (Blueprint $table) {
             
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('pai_id')->nullable();
             $table->string('nome');
             $table->string('celular');
             $table->string('estado');
             $table->string('cidade');
             $table->timestamps();
-            $table->foreign('pai_id')->references('id')->on('pais');
-
+            
         });
     }
 
