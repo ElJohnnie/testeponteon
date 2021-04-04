@@ -84,15 +84,27 @@
                     <img src="{{ asset('img/pon.png') }}" alt="">
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="m-b-md">
+                    <p>
+                        <strong>Primeiramente, muito obrigado pela oportunidade, toda experiência sempre será bem-vinda.</strong>
+                    </p>
+                    <div class="row">
+                        <p>
+                            <strong>Credenciais para acessar:</strong>
+                        </p>
+                        <div class="col">
+                            <p>
+                                <strong>Email:</strong>
+                                panteon@teste.com
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <strong>Senha:</strong>
+                                password
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
