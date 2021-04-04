@@ -75,7 +75,11 @@
           <td>{{ $e->celular }}</td>
           <td>{{ $e->cidade."/".$e->estado }}</td>
           <td>{{ date( 'd/m/Y H:i:s' , strtotime($e->created_at)) }}</td>
-          <td>{{ $e->pai['nome'] }}</td>
+          <td> 
+          @if(isset($e->pai['nome']))
+              {{ $e->pai['nome'] }}
+           @endif
+          </td>
           <td>
             <a href="{{route('listar', ['id' => $e->id])}}" type="button" class="btn btn-info">
               <i class="fas fa-network-wired"></i>
