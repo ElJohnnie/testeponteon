@@ -32,3 +32,5 @@ Após as migrations, rode o comando db:seed para dar um insert na credencial de 
 ```
 $ php artisan db:seed
 ```
+O projeto estará rodando em tempo real no Heroku por tempo indeterminado
+https://testeponteon.herokuapp.com/
