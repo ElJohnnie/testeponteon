@@ -111,7 +111,7 @@
                         <div class="col">
                             <p>
                                 <strong>Email:</strong>
-                                panteon@teste.com
+                                teste@ponteon.com
                             </p>
                         </div>
                         <div class="col">
