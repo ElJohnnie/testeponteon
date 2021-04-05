@@ -37,9 +37,10 @@ class EmpresariosController extends Controller
 
     public function rede($id){
      
-        $pai = Pai::find($id);
+        $pai = Empresario::find($id);
+        $listar = $this->listarRede($pai);
         $empresario = $this->empresario->find($id);
-        return view('list', compact('pai', 'empresario'));
+        return view('listebeta', compact('listar', 'empresario'));
     }
 
     public function destroy($id){
@@ -72,6 +73,23 @@ class EmpresariosController extends Controller
             $pai = Pai::findOrFail($idPai);
             return $pai;
         }   
+    }
+
+    public function listarRede($pai){
+        $listar = "<ul>";
+        if(isset($pai->filhos)){
+            foreach($pai->filhos as $filhos){
+                $listar .= "<li>";
+                $listar .= $filhos->nome;
+                if(isset($filhos->filhos)){
+                    $pai = $filhos;
+                    $listar .= $this->listarRede2($pai);
+                }
+                $listar .= "</li>";  
+            }
+        $listar .= "</ul>";
+        }
+        return $listar;
     }
 
 }
