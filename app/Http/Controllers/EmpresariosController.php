@@ -40,7 +40,7 @@ class EmpresariosController extends Controller
         $pai = Empresario::find($id);
         $listar = $this->listarRede($pai);
         $empresario = $this->empresario->find($id);
-        return view('listebeta', compact('listar', 'empresario'));
+        return view('list', compact('listar', 'empresario'));
     }
 
     public function destroy($id){
@@ -83,7 +83,7 @@ class EmpresariosController extends Controller
                 $listar .= $filhos->nome;
                 if(isset($filhos->filhos)){
                     $pai = $filhos;
-                    $listar .= $this->listarRede2($pai);
+                    $listar .= $this->listarRede($pai);
                 }
                 $listar .= "</li>";  
             }
